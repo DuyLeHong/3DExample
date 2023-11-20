@@ -20,20 +20,45 @@ public class tuongtac : MonoBehaviour
         transform.position = newPosition;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.tag == "cay")
+        if (collision.gameObject.tag == "cay")
         {
             Debug.Log("Va cham cay");
-        } else if (other.tag == "nui")
+        }
+        else if (collision.gameObject.tag == "nui")
         {
             Debug.Log("Va cham nui");
-        } else if (other.tag == "dat")
+        }
+        else if (collision.gameObject.tag == "dat")
         {
             Debug.Log("Va cham dat");
-        } else
+        }
+        else
         {
             Debug.Log("va cham");
+        }
+    }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+
+        if (other.tag == "cay")
+        {
+            Debug.Log("Trigger - Va cham cay");
+        }
+        else if (other.tag == "nui")
+        {
+            Debug.Log("Trigger - Va cham nui");
+        }
+        else if (other.tag == "dat")
+        {
+            Debug.Log("Trigger - Va cham dat");
+        }
+        else
+        {
+            Debug.Log("Trigger - va cham");
         }
     }
 }
